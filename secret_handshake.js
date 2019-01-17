@@ -1,30 +1,29 @@
+const decimalCodesToSecretHandshake = {
+  8: 'jump',
+  4: 'close your eyes',
+  2: 'double blink',
+  1: 'wink',
+};
+
 export const secretHandshake = (decimalNumber) => {
   if (!Number.isInteger(decimalNumber)) {
     throw new Error('Handshake must be a number');
   }
   let localCopyOfNumber = decimalNumber;
-  let result = [];
+  const result = [];
   let toReverseOrNotTo = true;
+
   while (localCopyOfNumber >= 16) {
     localCopyOfNumber -= 16;
     toReverseOrNotTo = !toReverseOrNotTo;
   }
-  while (localCopyOfNumber >= 8) {
-    result.push('jump');
-    localCopyOfNumber -= 8;
-  }
-  while (localCopyOfNumber >= 4) {
-    result.push('close your eyes');
-    localCopyOfNumber -= 4;
-  }
-
-  if (localCopyOfNumber >= 2) {
-    result.push('double blink');
-    localCopyOfNumber -= 2;
-  }
-  if (localCopyOfNumber === 1) {
-    result.push('wink');
-  }
-
+  [8, 4, 2, 1].forEach((decimalCodes) => {
+    if (localCopyOfNumber >= decimalCodes) {
+      localCopyOfNumber -= decimalCodes;
+      result.push(decimalCodesToSecretHandshake[decimalCodes]);
+    }
+  });
   return toReverseOrNotTo ? result.reverse() : result;
 };
+
+
