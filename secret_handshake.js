@@ -5,5 +5,8 @@ export const secretHandshake = (decimalNumber) => {
   if (decimalNumber === 2) {
     return ['double blink'];
   }
-  return ['close your eyes'];
+  if (decimalNumber === 4) {
+    return ['close your eyes'];
+  }
+  return ['jump'];
 };
