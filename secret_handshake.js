@@ -1,1 +1,6 @@
-export const secretHandshake = (decimalNumber) => ['wink'];
+export const secretHandshake = (decimalNumber) => {
+  if (decimalNumber === 1) {
+    return ['wink'];
+  }
+  return ['double blink'];
+};
