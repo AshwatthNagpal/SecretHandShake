@@ -1,12 +1,19 @@
 export const secretHandshake = (decimalNumber) => {
-  if (decimalNumber === 1) {
-    return ['wink'];
+  let localCopyOfNumber = decimalNumber;
+  let result = [];
+  if (localCopyOfNumber === 8) {
+    return ['jump'];
   }
-  if (decimalNumber === 2) {
-    return ['double blink'];
-  }
-  if (decimalNumber === 4) {
+  if (localCopyOfNumber === 4) {
     return ['close your eyes'];
   }
-  return ['jump'];
+
+  if (localCopyOfNumber >= 2) {
+    result.push('double blink');
+    localCopyOfNumber -= 2;
+  }
+  if (localCopyOfNumber === 1) {
+    result.push('wink');
+  }
+  return result.reverse();
 };
