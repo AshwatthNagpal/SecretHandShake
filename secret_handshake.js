@@ -1,14 +1,18 @@
 export const secretHandshake = (decimalNumber) => {
   let localCopyOfNumber = decimalNumber;
   let result = [];
-  if (localCopyOfNumber >= 16) {
+  let toReverseOrNotTo = true;
+  while (localCopyOfNumber >= 16) {
     localCopyOfNumber -= 16;
+    toReverseOrNotTo = !toReverseOrNotTo;
   }
-  if (localCopyOfNumber === 8) {
-    return ['jump'];
+  while (localCopyOfNumber >= 8) {
+    result.push('jump');
+    localCopyOfNumber -= 8;
   }
-  if (localCopyOfNumber === 4) {
-    return ['close your eyes'];
+  while (localCopyOfNumber >= 4) {
+    result.push('close your eyes');
+    localCopyOfNumber -= 4;
   }
 
   if (localCopyOfNumber >= 2) {
@@ -19,5 +23,5 @@ export const secretHandshake = (decimalNumber) => {
     result.push('wink');
   }
 
-  return decimalNumber > 16 ? result : result.reverse();
+  return toReverseOrNotTo ? result.reverse() : result;
 };
