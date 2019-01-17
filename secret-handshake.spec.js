@@ -21,7 +21,7 @@ describe('Secret Handshake', () => {
     expect(secretHandshake(3)).toEqual(['wink', 'double blink']);
   });
 
-  xtest('binary 10011 (decimal 19) is double blink and wink', () => {
+  test('binary 10011 (decimal 19) is double blink and wink', () => {
     expect(secretHandshake(19)).toEqual(['double blink', 'wink']);
   });
 

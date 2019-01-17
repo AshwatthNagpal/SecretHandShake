@@ -1,6 +1,9 @@
 export const secretHandshake = (decimalNumber) => {
   let localCopyOfNumber = decimalNumber;
   let result = [];
+  if (localCopyOfNumber >= 16) {
+    localCopyOfNumber -= 16;
+  }
   if (localCopyOfNumber === 8) {
     return ['jump'];
   }
@@ -15,5 +18,6 @@ export const secretHandshake = (decimalNumber) => {
   if (localCopyOfNumber === 1) {
     result.push('wink');
   }
-  return result.reverse();
+
+  return decimalNumber > 16 ? result : result.reverse();
 };
