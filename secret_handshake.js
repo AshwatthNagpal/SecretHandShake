@@ -1,4 +1,7 @@
 export const secretHandshake = (decimalNumber) => {
+  if (!Number.isInteger(decimalNumber)) {
+    throw new Error('Handshake must be a number');
+  }
   let localCopyOfNumber = decimalNumber;
   let result = [];
   let toReverseOrNotTo = true;
